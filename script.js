@@ -151,21 +151,7 @@ document.querySelectorAll('img').forEach(img => {
     });
 });
 
-// Form validation enhancement
-const inputs = document.querySelectorAll('.contact-form input, .contact-form textarea');
-inputs.forEach(input => {
-    input.addEventListener('blur', () => {
-        if (input.hasAttribute('required') && !input.value.trim()) {
-            input.style.borderColor = '#dc3545';
-        } else {
-            input.style.borderColor = '#ddd';
-        }
-    });
-    
-    input.addEventListener('focus', () => {
-        input.style.borderColor = '#007bff';
-    });
-});
+
 
 // Social media link hover effects
 const socialLinks = document.querySelectorAll('.social-link');
@@ -204,8 +190,8 @@ buttons.forEach(button => {
 });
 
 // Add ripple effect styles
-const style = document.createElement('style');
-style.textContent = `
+const rippleStyle = document.createElement('style');
+rippleStyle.textContent = `
     .btn {
         position: relative;
         overflow: hidden;
@@ -226,7 +212,11 @@ style.textContent = `
         }
     }
 `;
-document.head.appendChild(style);
+// Only append if not already present
+if (!document.querySelector('#ripple-styles')) {
+    rippleStyle.id = 'ripple-styles';
+    document.head.appendChild(rippleStyle);
+}
 
 // Initialize page
 document.addEventListener('DOMContentLoaded', () => {
@@ -238,4 +228,318 @@ document.addEventListener('DOMContentLoaded', () => {
         const currentYear = new Date().getFullYear();
         copyright.textContent = copyright.textContent.replace('2023', currentYear);
     }
+    
+    // Initialize gallery slider
+    initGallerySlider();
+    
+    // Initialize enhanced form validation
+    initFormValidation();
 });
+
+// GALLERY SLIDER FUNCTIONALITY
+function initGallerySlider() {
+    const sliderContainer = document.querySelector('.gallery-slider');
+    if (!sliderContainer) return;
+    
+    const slides = sliderContainer.querySelectorAll('.slide');
+    const prevBtn = sliderContainer.querySelector('.gallery-prev');
+    const nextBtn = sliderContainer.querySelector('.gallery-next');
+    const dotsContainer = sliderContainer.querySelector('.gallery-dots');
+    
+    if (slides.length === 0) return;
+    
+    if (!prevBtn || !nextBtn || !dotsContainer) return;
+    
+    let currentSlide = 0;
+    let autoSlideEnabled = true;
+    let autoSlideInterval;
+    const autoSlideDelay = 5000;
+    
+    // Create dot navigation
+    slides.forEach((_, index) => {
+        const dot = document.createElement('button');
+        dot.className = 'dot' + (index === 0 ? ' active' : '');
+        dot.setAttribute('aria-label', `Go to slide ${index + 1}`);
+        dot.addEventListener('click', () => goToSlide(index));
+        dotsContainer.appendChild(dot);
+    });
+    
+    const dots = dotsContainer.querySelectorAll('.dot');
+    
+    function showSlide(index) {
+        slides.forEach((slide, i) => {
+            slide.classList.toggle('active', i === index);
+            dots[i].classList.toggle('active', i === index);
+        });
+        
+        currentSlide = index;
+    }
+    
+    function nextSlide() {
+        const nextIndex = (currentSlide + 1) % slides.length;
+        showSlide(nextIndex);
+    }
+    
+    function prevSlide() {
+        const prevIndex = (currentSlide - 1 + slides.length) % slides.length;
+        showSlide(prevIndex);
+    }
+    
+    function goToSlide(index) {
+        showSlide(index);
+        resetAutoSlide();
+    }
+    
+    function startAutoSlide() {
+        if (autoSlideEnabled) {
+            autoSlideInterval = setInterval(nextSlide, autoSlideDelay);
+        }
+    }
+    
+    function stopAutoSlide() {
+        clearInterval(autoSlideInterval);
+    }
+    
+    function resetAutoSlide() {
+        stopAutoSlide();
+        startAutoSlide();
+    }
+    
+    function toggleAutoSlide() {
+        autoSlideEnabled = !autoSlideEnabled;
+        if (autoSlideEnabled) {
+            startAutoSlide();
+        } else {
+            stopAutoSlide();
+        }
+        return autoSlideEnabled;
+    }
+    
+    // Event listeners
+    prevBtn.addEventListener('click', () => {
+        prevSlide();
+        resetAutoSlide();
+    });
+    
+    nextBtn.addEventListener('click', () => {
+        nextSlide();
+        resetAutoSlide();
+    });
+    
+    // Keyboard navigation
+    sliderContainer.addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowLeft') {
+            prevSlide();
+            resetAutoSlide();
+        } else if (e.key === 'ArrowRight') {
+            nextSlide();
+            resetAutoSlide();
+        } else if (e.key === ' ' || e.key === 'Enter') {
+            e.preventDefault();
+            toggleAutoSlide();
+        }
+    });
+    
+    // Pause auto-slide on hover
+    sliderContainer.addEventListener('mouseenter', stopAutoSlide);
+    sliderContainer.addEventListener('mouseleave', startAutoSlide);
+    
+    // Touch/swipe support
+    let touchStartX = 0;
+    let touchEndX = 0;
+    
+    sliderContainer.addEventListener('touchstart', (e) => {
+        touchStartX = e.changedTouches[0].screenX;
+    }, { passive: true });
+    
+    sliderContainer.addEventListener('touchend', (e) => {
+        touchEndX = e.changedTouches[0].screenX;
+        handleSwipe();
+    }, { passive: true });
+    
+    function handleSwipe() {
+        const swipeThreshold = 50;
+        const diff = touchStartX - touchEndX;
+        
+        if (Math.abs(diff) > swipeThreshold) {
+            if (diff > 0) {
+                nextSlide();
+            } else {
+                prevSlide();
+            }
+            resetAutoSlide();
+        }
+    }
+    
+    // Expose toggle function globally for external control
+    sliderContainer.dataset.autoSlideEnabled = autoSlideEnabled;
+    sliderContainer.toggleAutoSlide = toggleAutoSlide;
+    
+    // Start auto-slide
+    startAutoSlide();
+}
+
+// ENHANCED FORM VALIDATION
+function initFormValidation() {
+    const form = document.querySelector('.contact-form');
+    if (!form) return;
+    
+    const fields = {
+        name: {
+            element: form.querySelector('#name, input[name="name"], .field-name input'),
+            validators: [
+                { test: v => v.trim() !== '', message: 'Nome é obrigatório' },
+                { test: v => v.trim().length >= 2, message: 'Nome deve ter pelo menos 2 caracteres' }
+            ]
+        },
+        sobrenome: {
+            element: form.querySelector('#sobrenome, input[name="sobrenome"], input[placeholder="Sobrenome"]'),
+            validators: [
+                { test: v => v.trim() !== '', message: 'Sobrenome é obrigatório' },
+                { test: v => v.trim().length >= 2, message: 'Sobrenome deve ter pelo menos 2 caracteres' }
+            ]
+        },
+        email: {
+            element: form.querySelector('#email, input[name="email"], .field-email input'),
+            validators: [
+                { test: v => v.trim() !== '', message: 'Email é obrigatório' },
+                { test: v => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v), message: 'Por favor, insira um email válido' }
+            ]
+        },
+        assunto: {
+            element: form.querySelector('#assunto, input[name="assunto"], input[placeholder="Assunto"]'),
+            validators: [
+                { test: v => v.trim() !== '', message: 'Assunto é obrigatório' },
+                { test: v => v.trim().length >= 2, message: 'Assunto deve ter pelo menos 2 caracteres' }
+            ]
+        },
+        message: {
+            element: form.querySelector('#message, textarea[name="message"], .field-message textarea'),
+            validators: [
+                { test: v => v.trim() !== '', message: 'Mensagem é obrigatória' },
+                { test: v => v.trim().length >= 10, message: 'Mensagem deve ter pelo menos 10 caracteres' }
+            ]
+        }
+    };
+    
+    // Create error message elements
+    Object.keys(fields).forEach(fieldName => {
+        const field = fields[fieldName];
+        if (field.element) {
+            const errorEl = document.createElement('span');
+            errorEl.className = 'field-error';
+            errorEl.setAttribute('aria-live', 'polite');
+            field.element.parentNode.appendChild(errorEl);
+            field.errorElement = errorEl;
+        }
+    });
+    
+    function showError(fieldName, message) {
+        const field = fields[fieldName];
+        if (!field) return;
+        
+        field.element.classList.add('error');
+        field.element.setAttribute('aria-invalid', 'true');
+        field.errorElement.textContent = message;
+        field.errorElement.style.display = 'block';
+    }
+    
+    function clearError(fieldName) {
+        const field = fields[fieldName];
+        if (!field) return;
+        
+        field.element.classList.remove('error');
+        field.element.setAttribute('aria-invalid', 'false');
+        field.errorElement.textContent = '';
+        field.errorElement.style.display = 'none';
+    }
+    
+    function validateField(fieldName) {
+        const field = fields[fieldName];
+        if (!field || !field.element) return true;
+        
+        const value = field.element.value || '';
+        clearError(fieldName);
+        
+        for (const validator of field.validators) {
+            if (!validator.test(value)) {
+                showError(fieldName, validator.message);
+                return false;
+            }
+        }
+        
+        return true;
+    }
+    
+    function validateAllFields() {
+        let isValid = true;
+        
+        Object.keys(fields).forEach(fieldName => {
+            if (!validateField(fieldName)) {
+                isValid = false;
+            }
+        });
+        
+        return isValid;
+    }
+    
+    // Real-time validation on blur
+    Object.keys(fields).forEach(fieldName => {
+        const field = fields[fieldName];
+        if (field && field.element) {
+            field.element.addEventListener('blur', () => {
+                validateField(fieldName);
+            });
+            
+            // Clear error on input
+            field.element.addEventListener('input', () => {
+                if (field.element.classList.contains('error')) {
+                    validateField(fieldName);
+                }
+            });
+        }
+    });
+    
+    // Form submission validation
+    form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        
+        if (!validateAllFields()) {
+            // Focus first invalid field
+            const firstInvalid = form.querySelector('.error');
+            if (firstInvalid) {
+                firstInvalid.focus();
+            }
+            return;
+        }
+        
+        // Get form data
+        const formData = new FormData(form);
+        const formObject = {};
+        formData.forEach((value, key) => {
+            formObject[key] = value;
+        });
+        
+        // Simulate form submission (replace with actual form submission logic)
+        console.log('Form submitted:', formObject);
+        
+        // Show success message
+        const successMessage = document.querySelector('.success-message');
+        if (successMessage) {
+            successMessage.style.display = 'block';
+            
+            // Hide success message after 5 seconds
+            setTimeout(() => {
+                successMessage.style.display = 'none';
+            }, 5000);
+        }
+        
+        // Reset form
+        form.reset();
+        
+        // Clear all errors
+        Object.keys(fields).forEach(fieldName => {
+            clearError(fieldName);
+        });
+    });
+}
