@@ -119,7 +119,7 @@ const validators = {
 ### External Resources
 
 - Fonts: Google Fonts (Montserrat)
-- Images: Wix static CDN (`static.wixstatic.com`)
+- Images: Local assets in `assets/images/` directory
 - No local assets required
 
 ## Portuguese Content

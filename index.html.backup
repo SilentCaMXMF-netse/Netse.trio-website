@@ -14,32 +14,18 @@
     <!-- Social Icons Bar -->
     <div class="social-icons-bar">
         <a href="https://facebook.com/netse" target="_blank" rel="noopener" aria-label="Facebook">
-            <svg viewBox="0 0 24 24" fill="#1877F2">
+            <svg width="30" height="30" viewBox="0 0 24 24" fill="currentColor">
                 <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
             </svg>
         </a>
         <a href="https://instagram.com/naoestusoueutrio" target="_blank" rel="noopener" aria-label="Instagram">
-            <svg viewBox="0 0 24 24" fill="url(#instagram-gradient)">
-                <defs>
-                    <linearGradient id="instagram-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                        <stop offset="0%" style="stop-color:#F58529" />
-                        <stop offset="25%" style="stop-color:#DD2A7B" />
-                        <stop offset="50%" style="stop-color:#8134AF" />
-                        <stop offset="75%" style="stop-color:#515BD4" />
-                    </linearGradient>
-                </defs>
-                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zM5.838 12a6.162 6.162 0 1 1 12.324 0 6.162 6.162 0 0 1-12.324 0zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm4.965-10.405a1.44 1.44 0 1 1 2.881.001 1.44 1.44 0 0 1-2.881-.001z"/>
-            </svg>
+            <img src="https://static.wixstatic.com/media/01c3aff52f2a4dffa526d7a9843d46ea.png/v1/fill/w_30,h_30,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/01c3aff52f2a4dffa526d7a9843d46ea.png" alt="Instagram">
         </a>
         <a href="https://youtube.com/@naoestusoueu" target="_blank" rel="noopener" aria-label="YouTube">
-            <svg viewBox="0 0 24 24" fill="#FF0000">
-                <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
-            </svg>
+            <img src="https://static.wixstatic.com/media/11062b_30de4e7217e64dfdadc3ea03beea7b94~mv2.png/v1/fill/w_30,h_30,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/11062b_30de4e7217e64dfdadc3ea03beea7b94~mv2.png" alt="YouTube">
         </a>
         <a href="https://noestusoueu.bandcamp.com/" target="_blank" rel="noopener" aria-label="Bandcamp">
-            <svg viewBox="0 0 24 24" fill="#1DA0C3">
-                <path d="M0 18.75l7.437-13.5h7.126L7.126 18.75zM24 18.75h-4.126l1.5-2.687h2.626zm0-4.5h-4.126l1.5-2.687h2.626zm0-4.5h-4.126l1.5-2.687h2.626zm0-4.5h-4.126l1.5-2.687h2.626z"/>
-            </svg>
+            <img src="https://static.wixstatic.com/media/11062b_5a5073410c4a464c8b2c31b44c8d7083~mv2.png/v1/fill/w_30,h_30,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/11062b_5a5073410c4a464c8b2c31b44c8d7083~mv2.png" alt="Bandcamp">
         </a>
     </div>
 
@@ -102,7 +88,7 @@
         <div class="container">
             
             <div class="discografia-content">
-                <img src="assets/images/sections/discografia-title.png" alt="Discografia" class="discografia-title">
+                <img src="https://static.wixstatic.com/media/e46b83_e6ad7f051c8e4f1cbc7d6113a1d5865a~mv2.png/v1/fill/w_403,h_86,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/discografia.png" alt="Discografia" class="discografia-title">
                 <p class="discografia-text">
                     "Ind' agora aqui cheguei" é o primeiro disco do trio Não és tu sou eu.
                 </p>
@@ -110,7 +96,7 @@
                     Entre Viras e Fandangos, corridinhos e enleios este disco promete aquecer os pés numa viagem coreográfica de norte a sul do país.
                 </p>
                 <a href="https://noestusoueu.bandcamp.com/" target="_blank" class="btn">BANDCAMP</a>
-                <img src="assets/images/products/cd-cover.jpg" alt="CD Cover" class="cd-cover">
+                <img src="https://static.wixstatic.com/media/e46b83_232e63d0129d4475af9e1b3d862c396e~mv2.jpg/v1/fill/w_575,h_575,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/CD.jpg" alt="CD Cover" class="cd-cover">
             </div>
         </div>
     </section>
@@ -126,7 +112,7 @@
         <div class="container">
             
             <div class="agenda-content">
-                <img src="assets/images/sections/agenda-title.png" alt="Agenda" class="agenda-title">
+                <img src="https://static.wixstatic.com/media/e46b83_db530b69d73e4974b375591b3be0cc48~mv2.png/v1/crop/x_0,y_0,w_3196,h_800/fill/w_344,h_86,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/e46b83_db530b69d73e4974b375591b3be0cc48~mv2.png" alt="Agenda" class="agenda-title">
                 <p class="agenda-event">OUT 05 | 2024 - Salicórnia | Setúbal</p>
                 <a href="#" class="btn">VER AGENDA COMPLETA</a>
             </div>
@@ -146,16 +132,16 @@
             <div class="gallery-slider">
                 <div class="gallery-slides">
                     <div class="slide active">
-                        <img src="assets/images/gallery/gallery-1.jpg" alt="Gallery 1" class="galeria-item">
+                        <img src="https://static.wixstatic.com/media/e46b83_b33ac78944c04a6581d61adba1f690c5~mv2.jpg/v1/fit/w_1440,h_810,q_90,enc_avif,quality_auto/e46b83_b33ac78944c04a6581d61adba1f690c5~mv2.jpg" alt="Gallery 1" class="galeria-item">
                     </div>
                     <div class="slide">
-                        <img src="assets/images/gallery/gallery-2.jpg" alt="Gallery 2" class="galeria-item">
+                        <img src="https://static.wixstatic.com/media/e46b83_09ceb0925fc84c1fa94489e7c0590bdc~mv2.jpg/v1/fit/w_1440,h_810,q_90,enc_avif,quality_auto/e46b83_09ceb0925fc84c1fa94489e7c0590bdc~mv2.jpg" alt="Gallery 2" class="galeria-item">
                     </div>
                     <div class="slide">
-                        <img src="assets/images/gallery/gallery-3.jpg" alt="Gallery 3" class="galeria-item">
+                        <img src="https://static.wixstatic.com/media/e46b83_7f27ceafa60041fb967bae3e6ae40755~mv2.jpg/v1/fit/w_1440,h_810,q_90,enc_avif,quality_auto/e46b83_7f27ceafa60041fb967bae3e6ae40755~mv2.jpg" alt="Gallery 3" class="galeria-item">
                     </div>
                     <div class="slide">
-                        <img src="assets/images/gallery/gallery-4.jpg" alt="Gallery 4" class="galeria-item">
+                        <img src="https://static.wixstatic.com/media/e46b83_802121e53ad44e649a4ea8ced0d54eb9~mv2.jpg/v1/fit/w_1440,h_810,q_90,enc_avif,quality_auto/e46b83_802121e53ad44e649a4ea8ced0d54eb9~mv2.jpg" alt="Gallery 4" class="galeria-item">
                     </div>
                 </div>
                 <button class="gallery-prev" aria-label="Previous slide">&lt;</button>
@@ -176,7 +162,7 @@
         <div class="container">
             
             <div class="contactos-content">
-                <img src="assets/images/sections/contactos-title.png" alt="Contactos" class="contactos-title">
+                <img src="https://static.wixstatic.com/media/e46b83_3d913cd4c7bd4ca3bdd8f81ea7e84a64~mv2.png/v1/crop/x_0,y_0,w_3452,h_800/fill/w_371,h_86,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/e46b83_3d913cd4c7bd4ca3bdd8f81ea7e84a64~mv2.png" alt="Contactos" class="contactos-title">
                 <div class="contact-info">
                     <p><a href="mailto:netse.trio@gmail.com">netse.trio@gmail.com</a> | <a href="tel:+351912427016">+351&nbsp;912&nbsp;427&nbsp;016</a></p>
                     <p><a href="https://www.dropbox.com/sh/1gg9om0rliknnm3/AAC0dZn4ZvTJdLeAleMEoNYJa?dl=0" target="_blank">dossier informativo e rider técnico</a></p>
@@ -206,16 +192,16 @@
         <div class="container">
             <div class="social-links">
                 <a href="https://www.instagram.com/naoestusoueutrio/" target="_blank" class="social-link">
-                    <img src="assets/images/icons/instagram.png" alt="Instagram">
+                    <img src="https://static.wixstatic.com/media/01c3aff52f2a4dffa526d7a9843d46ea.png/v1/fill/w_30,h_30,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/01c3aff52f2a4dffa526d7a9843d46ea.png" alt="Instagram">
                 </a>
                 <a href="https://noestusoueu.bandcamp.com/" target="_blank" class="social-link">
-                    <img src="assets/images/icons/bandcamp.png" alt="Bandcamp">
+                    <img src="https://static.wixstatic.com/media/11062b_5a5073410c4a464c8b2c31b44c8d7083~mv2.png/v1/fill/w_30,h_30,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/11062b_5a5073410c4a464c8b2c31b44c8d7083~mv2.png" alt="Bandcamp">
                 </a>
                 <a href="https://www.youtube.com/@naoestusoueu/playlists" target="_blank" class="social-link">
-                    <img src="assets/images/icons/youtube.png" alt="YouTube">
+                    <img src="https://static.wixstatic.com/media/11062b_30de4e7217e64dfdadc3ea03beea7b94~mv2.png/v1/fill/w_30,h_30,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/11062b_30de4e7217e64dfdadc3ea03beea7b94~mv2.png" alt="YouTube">
                 </a>
                 <a href="https://open.spotify.com/intl-pt/album/77zqNoqCnpGFJ38QZYjnY8?si=eol3zehPStm-WebkEbRJGQ" target="_blank" class="social-link">
-                    <img src="assets/images/icons/spotify.png" alt="Spotify">
+                    <img src="https://static.wixstatic.com/media/11062b_76b6d42cdb574d28ba1c78cac5cbc6de~mv2.png/v1/fill/w_30,h_30,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/11062b_76b6d42cdb574d28ba1c78cac5cbc6de~mv2.png" alt="Spotify">
                 </a>
             </div>
             <p class="copyright">© Não és tu sou eu 2023 | Lisboa | all rights reserved</p>
