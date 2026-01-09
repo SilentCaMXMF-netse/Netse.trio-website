@@ -30,7 +30,11 @@ body {
     font-family: var(--font-primary);
     line-height: 1.6;
     color: var(--color-text);
-    background-color: var(--color-background);
+    background-image: url('assets/images/paper-texture.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: repeat;
     font-size: 16px;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -69,7 +73,9 @@ body {
 }
 
 .logo img {
-    height: 40px;
+    width: 314px;
+    height: 63px;
+    object-fit: cover;
     transition: transform 0.3s ease;
 }
 
@@ -80,21 +86,24 @@ body {
 .nav-menu {
     display: flex;
     list-style: none;
-    gap: 2rem;
+    gap: 1.5rem;
+    align-items: center;
 }
 
 .nav-link {
     text-decoration: none;
-    color: #000;
-    font-weight: 600;
+    color: #333;
+    font-weight: 500;
     text-transform: lowercase;
-    transition: color 0.3s ease;
+    transition: all 0.3s ease;
     position: relative;
-    text-shadow: 0 1px 3px rgba(255, 255, 255, 0.9);
+    letter-spacing: 0.03em;
+    font-size: 16px;
 }
 
 .nav-link:hover {
     color: var(--color-primary);
+    text-decoration: underline;
 }
 
 .nav-link:focus {
@@ -150,18 +159,21 @@ body {
 
 .hero-image {
     width: 100%;
-    max-width: 600px;
-    height: auto;
-    border-radius: var(--border-radius-lg);
-    box-shadow: var(--shadow-xl);
+    max-width: 765px;
+    height: 344px;
+    object-fit: cover;
+    border-radius: 0;
+    box-shadow: none;
     transition: var(--transition);
     filter: brightness(1.02) contrast(1.05);
+    background-blend-mode: multiply;
 }
 
 .hero-image:hover {
     transform: scale(1.02) translateY(-5px);
     box-shadow: 0 25px 50px rgba(0, 0, 0, 0.25);
-    filter: brightness(1.05) contrast(1.1);
+    filter: brightness(1.05) contrast(1.1) blur(0.5px);
+    background-blend-mode: multiply;
 }
 
 /* Sections */
@@ -431,7 +443,8 @@ body {
     object-fit: cover;
 }
 
-.slider-btn {
+.gallery-prev,
+.gallery-next {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
@@ -451,21 +464,23 @@ body {
     box-shadow: var(--shadow-md);
 }
 
-.slider-btn:hover {
+.gallery-prev:hover,
+.gallery-next:hover {
     background: white;
     transform: translateY(-50%) scale(1.1);
 }
 
-.slider-btn:focus {
+.gallery-prev:focus,
+.gallery-next:focus {
     outline: 2px solid var(--color-primary);
     outline-offset: 2px;
 }
 
-.slider-prev {
+.gallery-prev {
     left: 20px;
 }
 
-.slider-next {
+.gallery-next {
     right: 20px;
 }
 
@@ -479,7 +494,7 @@ body {
     z-index: 10;
 }
 
-.slider-dot {
+.dot {
     width: 12px;
     height: 12px;
     border: 2px solid white;
@@ -490,16 +505,16 @@ body {
     padding: 0;
 }
 
-.slider-dot:hover {
+.dot:hover {
     background: rgba(255, 255, 255, 0.7);
 }
 
-.slider-dot.active {
+.dot.active {
     background: white;
     transform: scale(1.2);
 }
 
-.slider-dot:focus {
+.dot:focus {
     outline: 2px solid var(--color-primary);
     outline-offset: 2px;
 }
@@ -514,17 +529,18 @@ body {
         aspect-ratio: 4 / 3;
     }
     
-    .slider-btn {
+    .gallery-prev,
+    .gallery-next {
         width: 40px;
         height: 40px;
         font-size: 1.25rem;
     }
     
-    .slider-prev {
+    .gallery-prev {
         left: 10px;
     }
     
-    .slider-next {
+    .gallery-next {
         right: 10px;
     }
     
@@ -533,7 +549,7 @@ body {
         gap: 10px;
     }
     
-    .slider-dot {
+    .dot {
         width: 10px;
         height: 10px;
     }
@@ -544,7 +560,8 @@ body {
         aspect-ratio: 1 / 1;
     }
     
-    .slider-btn {
+    .gallery-prev,
+    .gallery-next {
         width: 36px;
         height: 36px;
         font-size: 1rem;
@@ -678,6 +695,16 @@ body {
     padding: 1rem;
     border-radius: 5px;
     margin-top: 1rem;
+}
+
+.contact-form .error-message {
+    color: #dc3545;
+    background: #f8d7da;
+    border: 1px solid #f5c6cb;
+    padding: 1rem;
+    border-radius: 4px;
+    margin-top: 1rem;
+    animation: fadeIn 0.3s ease;
 }
 
 /* Buttons */
@@ -1213,6 +1240,7 @@ textarea:focus,
 .social-icons-bar svg {
     width: 20px;
     height: 20px;
+    fill: white;
 }
 
 /* Responsive for gallery slider */

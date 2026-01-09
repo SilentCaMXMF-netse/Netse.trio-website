@@ -34,7 +34,7 @@ const contactForm = document.querySelector('.contact-form');
 const successMessage = document.querySelector('.success-message');
 
 if (contactForm) {
-    contactForm.addEventListener('submit', function(e) {
+    contactForm.addEventListener('submit', async function(e) {
         e.preventDefault();
         
         // Get form data
@@ -44,19 +44,62 @@ if (contactForm) {
             formObject[key] = value;
         });
         
-        // Simulate form submission (replace with actual form submission logic)
-        console.log('Form submitted:', formObject);
-        
-        // Show success message
-        successMessage.style.display = 'block';
-        
-        // Reset form
-        this.reset();
-        
-        // Hide success message after 5 seconds
-        setTimeout(() => {
-            successMessage.style.display = 'none';
-        }, 5000);
+        try {
+            // Send email to netse.trio@gmail.com
+            const response = await fetch('https://formspree.io/f/xdobpnaq', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                },
+                body: JSON.stringify({
+                    ...formObject,
+                    to: 'netse.trio@gmail.com',
+                    subject: `Nova mensagem de contato: ${formObject.assunto}`,
+                    from: formObject.email,
+                    reply_to: formObject.email
+                })
+            });
+            
+            if (response.ok) {
+                // Show success message
+                successMessage.style.display = 'block';
+                
+                // Reset form
+                this.reset();
+                
+                // Hide success message after 5 seconds
+                setTimeout(() => {
+                    successMessage.style.display = 'none';
+                }, 5000);
+            } else {
+                throw new Error('Form submission failed');
+            }
+        } catch (error) {
+            console.error('Form submission error:', error);
+            
+            // Show error message
+            const errorMessage = document.createElement('div');
+            errorMessage.className = 'error-message';
+            errorMessage.style.cssText = `
+                color: #dc3545;
+                background: #f8d7da;
+                border: 1px solid #f5c6cb;
+                padding: 1rem;
+                border-radius: 4px;
+                margin-top: 1rem;
+            `;
+            errorMessage.textContent = 'Erro ao enviar mensagem. Por favor, tente novamente mais tarde.';
+            
+            this.appendChild(errorMessage);
+            
+            // Remove error message after 5 seconds
+            setTimeout(() => {
+                if (errorMessage.parentNode) {
+                    errorMessage.parentNode.removeChild(errorMessage);
+                }
+            }, 5000);
+        }
     });
 }
 
@@ -501,7 +544,7 @@ function initFormValidation() {
     });
     
     // Form submission validation
-    form.addEventListener('submit', (e) => {
+    form.addEventListener('submit', async (e) => {
         e.preventDefault();
         
         if (!validateAllFields()) {
@@ -520,26 +563,69 @@ function initFormValidation() {
             formObject[key] = value;
         });
         
-        // Simulate form submission (replace with actual form submission logic)
-        console.log('Form submitted:', formObject);
-        
-        // Show success message
-        const successMessage = document.querySelector('.success-message');
-        if (successMessage) {
-            successMessage.style.display = 'block';
+        try {
+            // Send email to netse.trio@gmail.com
+            const response = await fetch('https://formspree.io/f/xdobpnaq', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                },
+                body: JSON.stringify({
+                    ...formObject,
+                    to: 'netse.trio@gmail.com',
+                    subject: `Nova mensagem de contato: ${formObject.assunto}`,
+                    from: formObject.email,
+                    reply_to: formObject.email
+                })
+            });
             
-            // Hide success message after 5 seconds
+            if (response.ok) {
+                // Show success message
+                const successMessage = document.querySelector('.success-message');
+                if (successMessage) {
+                    successMessage.style.display = 'block';
+                    
+                    // Hide success message after 5 seconds
+                    setTimeout(() => {
+                        successMessage.style.display = 'none';
+                    }, 5000);
+                }
+                
+                // Reset form
+                form.reset();
+                
+                // Clear all errors
+                Object.keys(fields).forEach(fieldName => {
+                    clearError(fieldName);
+                });
+            } else {
+                throw new Error('Form submission failed');
+            }
+        } catch (error) {
+            console.error('Form submission error:', error);
+            
+            // Show error message
+            const errorMessage = document.createElement('div');
+            errorMessage.className = 'error-message';
+            errorMessage.style.cssText = `
+                color: #dc3545;
+                background: #f8d7da;
+                border: 1px solid #f5c6cb;
+                padding: 1rem;
+                border-radius: 4px;
+                margin-top: 1rem;
+            `;
+            errorMessage.textContent = 'Erro ao enviar mensagem. Por favor, tente novamente mais tarde.';
+            
+            form.appendChild(errorMessage);
+            
+            // Remove error message after 5 seconds
             setTimeout(() => {
-                successMessage.style.display = 'none';
+                if (errorMessage.parentNode) {
+                    errorMessage.parentNode.removeChild(errorMessage);
+                }
             }, 5000);
         }
-        
-        // Reset form
-        form.reset();
-        
-        // Clear all errors
-        Object.keys(fields).forEach(fieldName => {
-            clearError(fieldName);
-        });
     });
 }
