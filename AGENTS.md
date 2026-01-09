@@ -120,7 +120,12 @@ const validators = {
 
 - Fonts: Google Fonts (Montserrat)
 - Images: Local assets in `assets/images/` directory
-- No local assets required
+  - Logo and branding: `assets/images/logo-*.png`, `assets/images/icon.png`
+  - Section titles: `assets/images/sections/`
+  - Gallery: `assets/images/gallery/`
+  - Social icons: `assets/images/icons/`
+  - Products: `assets/images/products/`
+  - Background textures: `assets/images/paper-texture.jpg`
 
 ## Portuguese Content
 

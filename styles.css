@@ -1261,12 +1261,24 @@ textarea:focus,
     background: linear-gradient(45deg, #F58529, #DD2A7B, #8134AF, #515BD4); /* Instagram gradient */
 }
 
+.social-icons-bar a:nth-child(2):hover svg {
+    fill: white;
+}
+
 .social-icons-bar a:nth-child(3):hover {
     background: #FF0000; /* YouTube red */
 }
 
+.social-icons-bar a:nth-child(3):hover svg {
+    fill: white;
+}
+
 .social-icons-bar a:nth-child(4):hover {
     background: #1DA0C3; /* Bandcamp teal */
+}
+
+.social-icons-bar a:nth-child(4):hover svg {
+    fill: white;
 }
 
 /* Responsive for gallery slider */
