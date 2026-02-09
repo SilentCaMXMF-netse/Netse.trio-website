@@ -4,11 +4,70 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Não És Tu Sou Eu | Novo Baile Português</title>
+    <meta name="description" content="Não És Tu Sou Eu é um trio dedicado à reinterpretação da música tradicional portuguesa em contexto de baile. Descubra a discografia, agenda de concertos e contacte-nos.">
+    <meta name="keywords" content="música tradicional portuguesa, novo baile português, folk, viras, fandangos, corridinhos">
+    <meta name="author" content="Não És Tu Sou Eu">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://www.netse.pt/">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="music.group">
+    <meta property="og:url" content="https://www.netse.pt/">
+    <meta property="og:title" content="Não És Tu Sou Eu | Novo Baile Português">
+    <meta property="og:description" content="Trio dedicado à reinterpretação da música tradicional portuguesa em contexto de baile. Descubra a discografia e agenda.">
+    <meta property="og:image" content="https://www.netse.pt/assets/images/pdx_nao-es-tu-sou-eu.png">
+    <meta property="og:locale" content="pt_PT">
+    <meta property="og:site_name" content="Não És Tu Sou Eu">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://www.netse.pt/">
+    <meta property="twitter:title" content="Não És Tu Sou Eu | Novo Baile Português">
+    <meta property="twitter:description" content="Trio dedicado à reinterpretação da música tradicional portuguesa em contexto de baile.">
+    <meta property="twitter:image" content="https://www.netse.pt/assets/images/pdx_nao-es-tu-sou-eu.png">
+    
     <link rel="stylesheet" href="styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="icon" type="image/png" href="assets/images/icon.png">
+    
+    <!-- Schema.org JSON-LD -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "MusicGroup",
+        "name": "Não És Tu Sou Eu",
+        "alternateName": "NETSE",
+        "description": "Trio dedicado à reinterpretação da música tradicional portuguesa em contexto de baile. O repertório apresenta uma pesquisa aprofundada sobre cancioneiros de música tradicional portuguesa.",
+        "url": "https://www.netse.pt",
+        "genre": ["Música Tradicional Portuguesa", "Novo Baile Português", "Folk"],
+        "member": [
+            {
+                "@type": "Person",
+                "name": "Membro do NETSE"
+            }
+        ],
+        "album": {
+            "@type": "MusicAlbum",
+            "name": "Ind' agora aqui cheguei",
+            "description": "Primeiro disco do trio entre Viras e Fandangos, corridinhos e enleios."
+        },
+        "sameAs": [
+            "https://www.instagram.com/naoestusoueutrio/",
+            "https://noestusoueu.bandcamp.com/",
+            "https://www.youtube.com/@naoestusoueu",
+            "https://www.facebook.com/netse",
+            "https://open.spotify.com/intl-pt/album/77zqNoqCnpGFJ38QZYjnY8"
+        ],
+        "contactPoint": {
+            "@type": "ContactPoint",
+            "email": "netse.trio@gmail.com",
+            "telephone": "+351-912-427-016",
+            "contactType": "booking"
+        }
+    }
+    </script>
 </head>
 <body>
     <!-- Social Icons Bar -->
@@ -73,8 +132,9 @@
     <!-- Hero Section -->
     <main id="main-content">
     <section id="home" class="hero" aria-label="Secção inicial">
+        <h1 class="sr-only">Não És Tu Sou Eu - Trio de Música Tradicional Portuguesa</h1>
         <div class="hero-content">
-            <img src="assets/images/pdx_nao-es-tu-sou-eu.png" alt="Band Photo" class="hero-image">
+            <img src="assets/images/pdx_nao-es-tu-sou-eu.png" alt="Não És Tu Sou Eu - Banda de Novo Baile Português" class="hero-image">
         </div>
     </section>
 
@@ -100,9 +160,9 @@
     <!-- Discografia Section -->
     <section id="discografia" class="section section-dark">
         <div class="container">
-            
+            <h2 class="sr-only">Discografia</h2>
             <div class="discografia-content">
-                <img src="assets/images/sections/discografia-title.png" alt="Discografia" class="discografia-title">
+                <img src="assets/images/sections/discografia-title.png" alt="" class="discografia-title" role="presentation">
                 <p class="discografia-text">
                     "Ind' agora aqui cheguei" é o primeiro disco do trio Não és tu sou eu.
                 </p>
@@ -124,9 +184,9 @@
     <!-- Agenda Section -->
     <section id="agenda" class="section">
         <div class="container">
-            
+            <h2 class="sr-only">Agenda</h2>
             <div class="agenda-content">
-                <img src="assets/images/sections/agenda-title.png" alt="Agenda" class="agenda-title">
+                <img src="assets/images/sections/agenda-title.png" alt="" class="agenda-title" role="presentation">
                 <p class="agenda-event">OUT 05 | 2024 - Salicórnia | Setúbal</p>
                 <a href="#" class="btn">VER AGENDA COMPLETA</a>
             </div>
@@ -142,7 +202,7 @@
     <!-- Galeria Section -->
     <section id="galeria" class="section section-dark">
         <div class="container">
-            
+            <h2 class="sr-only">Galeria</h2>
             <div class="gallery-slider">
                 <div class="gallery-slides">
                     <div class="slide active">
@@ -174,9 +234,9 @@
     <!-- Contactos Section -->
     <section id="contactos" class="section">
         <div class="container">
-            
+            <h2 class="sr-only">Contactos</h2>
             <div class="contactos-content">
-                <img src="assets/images/sections/contactos-title.png" alt="Contactos" class="contactos-title">
+                <img src="assets/images/sections/contactos-title.png" alt="" class="contactos-title" role="presentation">
                 <div class="contact-info">
                     <p><a href="mailto:netse.trio@gmail.com">netse.trio@gmail.com</a> | <a href="tel:+351912427016">+351&nbsp;912&nbsp;427&nbsp;016</a></p>
                     <p><a href="https://www.dropbox.com/sh/1gg9om0rliknnm3/AAC0dZn4ZvTJdLeAleMEoNYJa?dl=0" target="_blank">dossier informativo e rider técnico</a></p>
