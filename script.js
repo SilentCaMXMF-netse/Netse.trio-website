@@ -46,7 +46,7 @@ if (contactForm) {
         
         try {
             // Send email to netse.trio@gmail.com
-            const response = await fetch('https://formspree.io/f/xdobpnaq', {
+            const response = await fetch('https://formspree.io/f/xykdkzkk', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -565,7 +565,7 @@ function initFormValidation() {
         
         try {
             // Send email to netse.trio@gmail.com
-            const response = await fetch('https://formspree.io/f/xdobpnaq', {
+            const response = await fetch('https://formspree.io/f/xykdkzkk', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
