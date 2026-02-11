@@ -2,16 +2,20 @@
 
 Website estático para o trio de música tradicional portuguesa "Não És Tu Sou Eu" (Netse).
 
+**🌐 Site Online:** https://www.netse.pt
+
 ## 🎵 Sobre o Projeto
 
-Site oficial do trio dedicado à reinterpretação da música tradicional portuguesa em contexto de baile. O website apresenta a discografia, agenda de eventos, galeria de fotos e informações de contacto da banda.
+Site oficial do trio dedicado à reinterpretação da música tradicional portuguesa em contexto de baile. O website apresenta a discografia, agenda de eventos, galeria de fotos, reportório musical e informações de contacto da banda.
 
 ### Características Principais
 
 - **Design Responsivo**: Otimizado para todos os dispositivos
 - **Navegação Suave**: Scroll suave entre secções
 - **Galeria Interativa**: Slider com navegação por botões, teclado e touch
-- **Formulário de Contacto**: Validação em tempo real com feedback visual
+- **Formulário de Contacto**: Integração com Formspree para envio de emails
+- **Página de Reportório**: Lista completa do repertório musical
+- **SEO Otimizado**: Meta tags, Schema.org, sitemap.xml
 - **Acessibilidade WCAG 2.1 AA**: Totalmente acessível e compatível com leitores de ecrã
 - **Performance**: Carregamento rápido sem dependências externas
 
@@ -21,28 +25,37 @@ Site oficial do trio dedicado à reinterpretação da música tradicional portug
 - **CSS3**: Vanilla CSS com variáveis customizadas
 - **JavaScript**: Vanilla JS (sem frameworks)
 - **Fontes**: Google Fonts (Montserrat)
-- **Imagens**: Wix Static CDN
+- **Hosting**: GitHub Pages
+- **Formulários**: Formspree (https://formspree.io/f/xykdkzkk)
+- **Domínio**: www.netse.pt (configurado com DNS e HTTPS)
 
 ## 📁 Estrutura do Projeto
 
 ```
 Netse.trio-website/
-├── index.html          # Estrutura principal do site
-├── styles.css          # Todos os estilos CSS
-├── script.js           # Funcionalidade JavaScript
-├── README.md           # Documentação do projeto
-├── AGENTS.md           # Diretrizes para desenvolvedores
-└── assets/             # Recursos estáticos
-    └── images/         # Imagens organizadas
+├── index.html              # Página principal
+├── reportorio.html         # Página de reportório/repertório
+├── styles.css              # Todos os estilos CSS
+├── script.js               # Funcionalidade JavaScript
+├── README.md               # Documentação do projeto
+├── AGENTS.md               # Diretrizes para desenvolvedores
+├── CNAME                   # Configuração de domínio customizado
+├── sitemap.xml             # Sitemap para SEO
+├── robots.txt              # Instruções para motores de busca
+├── google6d2c5ef30f1580c3.html  # Verificação Google Search Console
+└── assets/                 # Recursos estáticos
+    └── images/             # Imagens organizadas
         ├── icon.png
         ├── logo-netse.png
-        ├── logo-netse2.jpg
-        ├── NETSE_Interior_tripla_High copy.jpg
         ├── paper-texture.jpg
-        └── pdx_nao-es-tu-sou-eu.png
+        ├── pdx_nao-es-tu-sou-eu.png
+        ├── sections/       # Títulos das secções
+        ├── gallery/        # Fotos da galeria
+        ├── icons/          # Ícones de redes sociais
+        └── products/       # Imagens de produtos
 ```
 
-## 🚀 Como Executar
+## 🚀 Como Executar Localmente
 
 ### Opção 1: Python (Recomendado)
 ```bash
@@ -75,18 +88,38 @@ Aceda a `http://localhost:8000` no seu navegador.
 - Álbum "Ind' agora aqui cheguei"
 - Link para Bandcamp
 
-### 4. Agenda
-- Próximos eventos e concertos
-- Datas e locais
+### 4. Reportório
+- Página dedicada ao repertório musical
+- Viras, Fandangos, Corridinhos e Enleios
+- URL: `/reportorio.html`
 
-### 5. Galeria
+### 5. Agenda
+- Próximos eventos e concertos
+- Datas e locais atualizados
+
+### 6. Galeria
 - Slider de fotos
 - Navegação múltipla (botões, teclado, touch)
 
-### 6. Contactos
-- Formulário de contacto
+### 7. Contactos
+- Formulário de contacto integrado com Formspree
 - Informações de booking
 - Redes sociais
+
+## 🔧 Configuração DNS
+
+O domínio www.netse.pt está configurado com:
+
+- **A Records** (netse.pt → GitHub Pages):
+  - 185.199.108.153
+  - 185.199.109.153
+  - 185.199.110.153
+  - 185.199.111.153
+
+- **CNAME** (www → GitHub Pages):
+  - www → silentcamxmf-netse.github.io
+
+- **HTTPS**: Enforce HTTPS ativado no GitHub Pages
 
 ## ♿ Acessibilidade
 
@@ -104,7 +137,6 @@ O site cumpre os padrões WCAG 2.1 AA:
 - **Navegadores**: Chrome, Firefox, Safari, Edge
 - **Dispositivos**: Desktop, Tablet, Mobile
 - **Resolução**: 320px - 4K
-- **Pré-processadores**: Não requeridos
 
 ## 🎯 Funcionalidades Técnicas
 
@@ -113,6 +145,7 @@ O site cumpre os padrões WCAG 2.1 AA:
 - Clamp() para tipografia responsiva
 - CSS Grid e Flexbox
 - Media queries mobile-first
+- Formulários com fundo transparente e linha inferior
 - Animações respeitando `prefers-reduced-motion`
 
 ### JavaScript Features
@@ -122,26 +155,14 @@ O site cumpre os padrões WCAG 2.1 AA:
 - Gallery slider com múltiplos controles
 - Mobile menu toggle
 - Header scroll effects
+- Integração com Formspree API
 
-## 🔧 Desenvolvimento
-
-### Guidelines de Código
-- HTML semântico com `lang="pt-PT"`
-- CSS com BEM-inspired naming
-- JavaScript vanilla com null checks
-- Comentários em português quando necessário
-
-### Validação
-- HTML5: W3C Validator
-- CSS3: W3C CSS Validator
-- JavaScript: ESLint (recomendado)
-
-## 📈 Performance
-
-- **Lighthouse Score**: 95+ (Desktop), 90+ (Mobile)
-- **First Contentful Paint**: <1.5s
-- **Largest Contentful Paint**: <2.5s
-- **Cumulative Layout Shift**: <0.1
+### SEO
+- Meta tags Open Graph e Twitter Cards
+- Schema.org JSON-LD (MusicGroup)
+- Sitemap.xml
+- Robots.txt
+- Títulos de secção otimizados
 
 ## 🌐 Redes Sociais
 
@@ -149,12 +170,21 @@ O site cumpre os padrões WCAG 2.1 AA:
 - **YouTube**: @naoestusoueu
 - **Bandcamp**: noestusoueu.bandcamp.com
 - **Facebook**: facebook.com/netse
+- **Spotify**: Disponível na plataforma
 
 ## 📧 Contacto
 
 - **Email**: netse.trio@gmail.com
 - **Telefone**: +351 912 427 016
-- **Booking**: Through contact form
+- **Formulário**: Disponível em www.netse.pt
+- **Dossier técnico**: [Proton Drive](https://drive.proton.me/urls/1JG05H60P4#pmdeTvM4lI8e)
+
+## 🚀 Deployment
+
+O site está hospedado no **GitHub Pages**:
+- Repositório: https://github.com/SilentCaMXMF-netse/Netse.trio-website
+- URL GitHub: https://silentcamxmf-netse.github.io/Netse.trio-website/
+- URL Oficial: https://www.netse.pt
 
 ## 📄 Licença
 
