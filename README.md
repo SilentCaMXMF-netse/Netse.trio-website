@@ -35,6 +35,7 @@ Site oficial do trio dedicado à reinterpretação da música tradicional portug
 Netse.trio-website/
 ├── index.html              # Página principal
 ├── reportorio.html         # Página de reportório/repertório
+├── agenda.html             # Página de agenda completa
 ├── styles.css              # Todos os estilos CSS
 ├── script.js               # Funcionalidade JavaScript
 ├── README.md               # Documentação do projeto
@@ -94,8 +95,9 @@ Aceda a `http://localhost:8000` no seu navegador.
 - URL: `/reportorio.html`
 
 ### 5. Agenda
-- Próximos eventos e concertos
-- Datas e locais atualizados
+- Próximos eventos e concertos destacados na página principal
+- **Página completa**: `/agenda.html` com todos os eventos
+- Eventos organizados em "Próximos" e "Realizados"
 
 ### 6. Galeria
 - Slider de fotos
@@ -178,6 +180,16 @@ O site cumpre os padrões WCAG 2.1 AA:
 - **Telefone**: +351 912 427 016
 - **Formulário**: Disponível em www.netse.pt
 - **Dossier técnico**: [Proton Drive](https://drive.proton.me/urls/1JG05H60P4#pmdeTvM4lI8e)
+
+## 📅 Atualizações Recentes
+
+### Fevereiro 2026
+- ✅ Adicionada página de agenda completa (`agenda.html`)
+- ✅ Atualizados eventos: Folkclorada 2026 (próximo), Salicórnia (realizado)
+- ✅ Formulários estilizados com fundo transparente
+- ✅ Títulos de secção aumentados 25%
+- ✅ Migração completa de Wix para GitHub Pages
+- ✅ Configuração de domínio www.netse.pt com DNS
 
 ## 🚀 Deployment
 
