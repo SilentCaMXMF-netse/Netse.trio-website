@@ -632,19 +632,20 @@ body {
 .contact-form input,
 .contact-form textarea {
     padding: 14px 16px;
-    border: 1px solid #e0e0e0;
+    border: none;
     border-radius: 4px;
     font-family: var(--font-primary);
     font-size: 1rem;
     transition: all 0.3s ease;
-    background: white;
+    background: rgba(248, 248, 246, 0.7);
+    backdrop-filter: blur(2px);
     width: 100%;
 }
 
 .contact-form input:focus,
 .contact-form textarea:focus {
     outline: none;
-    border-color: var(--color-primary);
+    background: rgba(255, 255, 255, 0.9);
     box-shadow: 0 0 0 3px rgba(125, 141, 104, 0.1);
     transform: translateY(-1px);
 }
@@ -657,7 +658,7 @@ body {
 
 .contact-form input.error,
 .contact-form textarea.error {
-    border-color: #dc3545;
+    background: rgba(248, 215, 218, 0.7);
     box-shadow: 0 0 0 3px rgba(220, 53, 69, 0.1);
 }
 
