@@ -1,0 +1,16 @@
+{
+  "agents": {
+    "explorer": {
+      "model": "opencode/big-pickle"
+    },
+    "librarian": {
+      "model": "opencode/big-pickle"
+    },
+    "oracle": {
+      "model": "opencode/kimi-k2.5-free"
+    },
+    "ui-planner": {
+      "model": "opencode/minimax-m2.5-free"
+    }
+  }
+}

@@ -61,6 +61,36 @@ npx hyperlink *.html --canonicalroot https://www.netse.pt
 python3 -c "import html.parser; html.parser.HTMLParser().feed(open('index.html').read())"
 ```
 
+### Browser Automation (Playwright)
+```bash
+# Create a session (do this once)
+npx playwriter session new
+
+# Navigate to page and get title
+npx playwriter -s 1 -e "page.goto('https://www.netse.pt').then(() => page.title()).then(t => console.log(t))"
+
+# Click a link and navigate
+npx playwriter -s 1 -e "page.goto('https://www.netse.pt').then(() => page.click('text=reportório')).then(() => page.url()).then(u => console.log(u))"
+
+# Get page HTML content
+npx playwriter -s 1 -e "page.goto('https://www.netse.pt/reportorio.html').then(() => page.content()).then(c => console.log(c.substring(0, 1000)))"
+
+# Take screenshot
+npx playwriter -s 1 -e "page.goto('https://www.netse.pt').then(() => page.screenshot({path: 'screenshot.png'}))"
+
+# Fill form and submit
+npx playwriter -s 1 -e "page.goto('https://www.netse.pt/#contactos').then(() => page.fill('#name', 'Test')).then(() => page.fill('#email', 'test@test.com')).then(() => page.click('button[type=submit]'))"
+
+# Get console logs from page
+npx playwriter -s 1 -e "page.goto('https://www.netse.pt').then(() => page.evaluate(() => console.log('Hello from page')))"
+
+# Wait for element and click
+npx playwriter -s 1 -e "page.goto('https://www.netse.pt').then(() => page.waitForSelector('text=reportório')).then(() => page.click('text=reportório'))"
+
+# Delete session when done
+npx playwriter session delete 1
+```
+
 ### Deployment
 ```bash
 # Stage all changes

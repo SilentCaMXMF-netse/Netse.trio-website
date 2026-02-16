@@ -2,116 +2,53 @@
 const hamburger = document.querySelector('.hamburger');
 const navMenu = document.querySelector('.nav-menu');
 
-hamburger.addEventListener('click', () => {
-    hamburger.classList.toggle('active');
-    navMenu.classList.toggle('active');
-});
-
-// Close mobile menu when clicking on a link
-document.querySelectorAll('.nav-link').forEach(link => {
-    link.addEventListener('click', () => {
-        hamburger.classList.remove('active');
-        navMenu.classList.remove('active');
+if (hamburger && navMenu) {
+    hamburger.addEventListener('click', () => {
+        hamburger.classList.toggle('active');
+        navMenu.classList.toggle('active');
     });
-});
+
+    // Close mobile menu when clicking on a link
+    document.querySelectorAll('.nav-link').forEach(link => {
+        link.addEventListener('click', () => {
+            hamburger.classList.remove('active');
+            navMenu.classList.remove('active');
+        });
+    });
+}
+
+// Check for reduced motion preference
+const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
 // Smooth scrolling for navigation links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
-        e.preventDefault();
         const target = document.querySelector(this.getAttribute('href'));
         if (target) {
+            e.preventDefault();
             target.scrollIntoView({
-                behavior: 'smooth',
+                behavior: prefersReducedMotion ? 'auto' : 'smooth',
                 block: 'start'
             });
         }
     });
 });
 
-// Contact form handling
+// Contact form handling - uses initFormValidation() on DOMContentLoaded
 const contactForm = document.querySelector('.contact-form');
 const successMessage = document.querySelector('.success-message');
 
-if (contactForm) {
-    contactForm.addEventListener('submit', async function(e) {
-        e.preventDefault();
-        
-        // Get form data
-        const formData = new FormData(this);
-        const formObject = {};
-        formData.forEach((value, key) => {
-            formObject[key] = value;
-        });
-        
-        try {
-            // Send email to netse.trio@gmail.com
-            const response = await fetch('https://formspree.io/f/xykdkzkk', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Accept': 'application/json'
-                },
-                body: JSON.stringify({
-                    ...formObject,
-                    to: 'netse.trio@gmail.com',
-                    subject: `Nova mensagem de contato: ${formObject.assunto}`,
-                    from: formObject.email,
-                    reply_to: formObject.email
-                })
-            });
-            
-            if (response.ok) {
-                // Show success message
-                successMessage.style.display = 'block';
-                
-                // Reset form
-                this.reset();
-                
-                // Hide success message after 5 seconds
-                setTimeout(() => {
-                    successMessage.style.display = 'none';
-                }, 5000);
-            } else {
-                throw new Error('Form submission failed');
-            }
-        } catch (error) {
-            console.error('Form submission error:', error);
-            
-            // Show error message
-            const errorMessage = document.createElement('div');
-            errorMessage.className = 'error-message';
-            errorMessage.style.cssText = `
-                color: #dc3545;
-                background: #f8d7da;
-                border: 1px solid #f5c6cb;
-                padding: 1rem;
-                border-radius: 4px;
-                margin-top: 1rem;
-            `;
-            errorMessage.textContent = 'Erro ao enviar mensagem. Por favor, tente novamente mais tarde.';
-            
-            this.appendChild(errorMessage);
-            
-            // Remove error message after 5 seconds
-            setTimeout(() => {
-                if (errorMessage.parentNode) {
-                    errorMessage.parentNode.removeChild(errorMessage);
-                }
-            }, 5000);
-        }
-    });
-}
-
 // Gallery lightbox functionality
 const galleryItems = document.querySelectorAll('.galeria-item');
-const lightbox = document.createElement('div');
-lightbox.className = 'lightbox';
-lightbox.innerHTML = '<span class="lightbox-close">&times;</span><img class="lightbox-content" src="">';
-document.body.appendChild(lightbox);
 
-const lightboxContent = lightbox.querySelector('.lightbox-content');
-const lightboxClose = lightbox.querySelector('.lightbox-close');
+if (galleryItems.length > 0) {
+    const lightbox = document.createElement('div');
+    lightbox.className = 'lightbox';
+    lightbox.innerHTML = '<span class="lightbox-close">&times;</span><img class="lightbox-content" src="">';
+    document.body.appendChild(lightbox);
+
+    const lightboxContent = lightbox.querySelector('.lightbox-content');
+    const lightboxClose = lightbox.querySelector('.lightbox-close');
 
 galleryItems.forEach(item => {
     item.addEventListener('click', () => {
@@ -171,15 +108,21 @@ const observer = new IntersectionObserver((entries) => {
 
 // Observe all sections
 document.querySelectorAll('.section').forEach(section => {
-    section.style.opacity = '0';
-    section.style.transform = 'translateY(30px)';
-    section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-    observer.observe(section);
+    if (prefersReducedMotion) {
+        section.style.opacity = '1';
+        section.style.transform = 'none';
+    } else {
+        section.style.opacity = '0';
+        section.style.transform = 'translateY(30px)';
+        section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+        observer.observe(section);
+    }
 });
 
 // Parallax effect for hero image
 const heroImage = document.querySelector('.hero-image');
-if (heroImage) {
+
+if (heroImage && !prefersReducedMotion) {
     window.addEventListener('scroll', () => {
         const scrolled = window.pageYOffset;
         const parallax = scrolled * 0.5;
